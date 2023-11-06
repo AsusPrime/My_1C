@@ -1,7 +1,7 @@
 # This Python file uses the following encoding: utf-8
 import sys
 
-from PySide6.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout, QLabel, QMessageBox
+from PySide6.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout, QLabel, QMessageBox, QTableWidgetItem
 
 # Important:
 # You need to run the following command to generate the ui_form.py file
@@ -45,6 +45,9 @@ class MainWindow(QMainWindow):
 
         #AUXILIARY VARIABLES
         self.anotherWin = None
+        
+        #COLUMN NAMES
+        self.column_names = ['ID', 'Name', 'Email', 'Password']
 
         #WINDOW SETTINGS
         self.setFixedSize(800, 600)
@@ -71,8 +74,16 @@ class MainWindow(QMainWindow):
 
     def updateDB(self):
         data = self.db.getData()
-        for user in data:
-            print(f'ID:{user[0]}\nName:{user[1]}\nMail:{user[2]}\n')
+        
+        self.ui.tableWidget.setRowCount(len(data))
+        self.ui.tableWidget.setColumnCount(len(data[0]))
+
+        self.ui.tableWidget.setHorizontalHeaderLabels(self.column_names)
+
+        for row_num, row_data in enumerate(data):
+            for col_num, cell_data in enumerate(row_data):
+                item = QTableWidgetItem(str(cell_data))
+                self.ui.tableWidget.setItem(row_num, col_num, item)
 
     #WINDOWS
     def add(self):
@@ -87,8 +98,10 @@ class MainWindow(QMainWindow):
         self.anotherWin = ChangeWindow()
         self.anotherWin.show()
 
+    #CLOSE EVENT
     def closeEvent(self, event):
-        self.anotherWin.close()
+        if self.anotherWin is not None:
+            self.anotherWin.close()
         event.accept()
 
 

@@ -16,8 +16,9 @@ from PySide6.QtGui import (QAction, QBrush, QColor, QConicalGradient,
     QIcon, QImage, QKeySequence, QLinearGradient,
     QPainter, QPalette, QPixmap, QRadialGradient,
     QTransform)
-from PySide6.QtWidgets import (QApplication, QMainWindow, QMenu, QMenuBar,
-    QPushButton, QScrollArea, QSizePolicy, QWidget)
+from PySide6.QtWidgets import (QApplication, QHeaderView, QMainWindow, QMenu,
+    QMenuBar, QPushButton, QSizePolicy, QTableWidget,
+    QTableWidgetItem, QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -52,14 +53,6 @@ class Ui_MainWindow(object):
         self.actionLog_out.setObjectName(u"actionLog_out")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
-        self.scrollArea = QScrollArea(self.centralwidget)
-        self.scrollArea.setObjectName(u"scrollArea")
-        self.scrollArea.setGeometry(QRect(200, 0, 601, 361))
-        self.scrollArea.setWidgetResizable(True)
-        self.scrollAreaWidgetContents = QWidget()
-        self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 599, 359))
-        self.scrollArea.setWidget(self.scrollAreaWidgetContents)
         self.updateDBButton = QPushButton(self.centralwidget)
         self.updateDBButton.setObjectName(u"updateDBButton")
         self.updateDBButton.setGeometry(QRect(0, 0, 131, 61))
@@ -72,6 +65,9 @@ class Ui_MainWindow(object):
         self.changeButton = QPushButton(self.centralwidget)
         self.changeButton.setObjectName(u"changeButton")
         self.changeButton.setGeometry(QRect(0, 210, 131, 61))
+        self.tableWidget = QTableWidget(self.centralwidget)
+        self.tableWidget.setObjectName(u"tableWidget")
+        self.tableWidget.setGeometry(QRect(200, 0, 601, 361))
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")

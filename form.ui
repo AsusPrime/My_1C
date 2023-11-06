@@ -44,29 +44,6 @@
    <string notr="true"/>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QScrollArea" name="scrollArea">
-    <property name="geometry">
-     <rect>
-      <x>200</x>
-      <y>0</y>
-      <width>601</width>
-      <height>361</height>
-     </rect>
-    </property>
-    <property name="widgetResizable">
-     <bool>true</bool>
-    </property>
-    <widget class="QWidget" name="scrollAreaWidgetContents">
-     <property name="geometry">
-      <rect>
-       <x>0</x>
-       <y>0</y>
-       <width>599</width>
-       <height>359</height>
-      </rect>
-     </property>
-    </widget>
-   </widget>
    <widget class="QPushButton" name="updateDBButton">
     <property name="geometry">
      <rect>
@@ -117,6 +94,16 @@
     </property>
     <property name="text">
      <string>CHANGE</string>
+    </property>
+   </widget>
+   <widget class="QTableWidget" name="tableWidget">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>0</y>
+      <width>601</width>
+      <height>361</height>
+     </rect>
     </property>
    </widget>
   </widget>
