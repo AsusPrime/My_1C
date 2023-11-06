@@ -1,7 +1,8 @@
 # This Python file uses the following encoding: utf-8
 import sys
 
-from PySide6.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout, QLabel, QMessageBox, QTableWidgetItem
+from PySide6.QtWidgets import (QApplication, QMainWindow, QWidget, QVBoxLayout, QLabel, 
+                               QMessageBox, QTableWidgetItem, QHeaderView, QPushButton)
 
 # Important:
 # You need to run the following command to generate the ui_form.py file
@@ -15,10 +16,22 @@ class AddWindow(QWidget):
     def __init__(self):
         super().__init__()
         layout = QVBoxLayout()
-        self.label = QLabel("Add Window")
+        self.label_n = QLabel("NAME")
+        self.label_b = QLabel("BRAND")
+        self.label_c = QLabel("COUNT")
+
+        self.add_button = QPushButton("ADD")
+        self.add_button.clicked.connect(self.addButton)
+
         self.setFixedSize(300, 200)
-        layout.addWidget(self.label)
+        layout.addWidget(self.label_n)
+        layout.addWidget(self.label_b)
+        layout.addWidget(self.label_c)
+        layout.addWidget(self.add_button)
         self.setLayout(layout)
+
+    def addButton(self):
+        pass
 
 class RemoveWindow(QWidget):
     def __init__(self):
@@ -45,9 +58,6 @@ class MainWindow(QMainWindow):
 
         #AUXILIARY VARIABLES
         self.anotherWin = None
-        
-        #COLUMN NAMES
-        self.column_names = ['ID', 'Name', 'Email', 'Password']
 
         #WINDOW SETTINGS
         self.setFixedSize(800, 600)
@@ -78,7 +88,9 @@ class MainWindow(QMainWindow):
         self.ui.tableWidget.setRowCount(len(data))
         self.ui.tableWidget.setColumnCount(len(data[0]))
 
-        self.ui.tableWidget.setHorizontalHeaderLabels(self.column_names)
+        column_names = ['ID', 'Name', 'Email', 'Password']
+        self.ui.tableWidget.setHorizontalHeaderLabels(column_names)#Задаем имена столбцам
+        self.ui.tableWidget.horizontalHeader().setSectionResizeMode(QHeaderView.ResizeMode.ResizeToContents)#Растягиваем столбцы по размеру содержимого
 
         for row_num, row_data in enumerate(data):
             for col_num, cell_data in enumerate(row_data):
