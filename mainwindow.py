@@ -8,48 +8,35 @@ from PySide6.QtWidgets import (QApplication, QMainWindow, QWidget, QVBoxLayout, 
 # You need to run the following command to generate the ui_form.py file
 #     pyside6-uic form.ui -o ui_form.py, or
 #     pyside2-uic form.ui -o ui_form.py
-from ui_form import Ui_MainWindow
+from ui_form import Ui_MainWindow, Ui_AddWindow, Ui_RemoveWindow
 import pymysql
 
 #AUXILIARY WINDOWS
+#ADD WINDOW
 class AddWindow(QWidget):
-    def __init__(self):
-        super().__init__()
-        layout = QVBoxLayout()
-        self.label_n = QLabel("NAME")
-        self.label_b = QLabel("BRAND")
-        self.label_c = QLabel("COUNT")
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.ui = Ui_AddWindow()
+        self.ui.setupUi(self)
 
-        self.add_button = QPushButton("ADD")
-        self.add_button.clicked.connect(self.addButton)
-
-        self.setFixedSize(300, 200)
-        layout.addWidget(self.label_n)
-        layout.addWidget(self.label_b)
-        layout.addWidget(self.label_c)
-        layout.addWidget(self.add_button)
-        self.setLayout(layout)
+        self.ui.pushButton.clicked.connect(self.addButton)
 
     def addButton(self):
         pass
 
+#REMOVE WINDOW
 class RemoveWindow(QWidget):
-    def __init__(self):
-        super().__init__()
-        layout = QVBoxLayout()
-        self.label = QLabel("Remove Window")
-        self.setFixedSize(300, 200)
-        layout.addWidget(self.label)
-        self.setLayout(layout)
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.ui = Ui_RemoveWindow()
+        self.ui.setupUi(self)
 
+#CHANGE WINDOW
 class ChangeWindow(QWidget):
-    def __init__(self):
-        super().__init__()
-        layout = QVBoxLayout()
-        self.label = QLabel("Change Window")
-        self.setFixedSize(300, 200)
-        layout.addWidget(self.label)
-        self.setLayout(layout)
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.ui = Ui_AddWindow()
+        self.ui.setupUi(self)
 
 #MAIN WINDOW
 class MainWindow(QMainWindow):

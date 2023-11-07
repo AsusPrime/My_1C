@@ -17,7 +17,7 @@ from PySide6.QtGui import (QAction, QBrush, QColor, QConicalGradient,
     QPainter, QPalette, QPixmap, QRadialGradient,
     QTransform)
 from PySide6.QtWidgets import (QApplication, QHeaderView, QMainWindow, QMenu,
-    QMenuBar, QPushButton, QSizePolicy, QTableWidget,
+    QMenuBar, QPushButton, QSizePolicy, QTableWidget, QLineEdit, QLabel,
     QTableWidgetItem, QWidget)
 
 class Ui_MainWindow(object):
@@ -92,5 +92,77 @@ class Ui_MainWindow(object):
         self.changeButton.setText(QCoreApplication.translate("MainWindow", u"CHANGE", None))
         self.menuLog.setTitle(QCoreApplication.translate("MainWindow", u"Log", None))
         pass
+    # retranslateUi
+
+
+class Ui_AddWindow(object):
+    def setupUi(self, AddWindow):
+        if not AddWindow.objectName():
+            AddWindow.setObjectName(u"AddWindow")
+        AddWindow.resize(300, 225)
+        self.lineEdit = QLineEdit(AddWindow)
+        self.lineEdit.setObjectName(u"lineEdit")
+        self.lineEdit.setGeometry(QRect(60, 20, 211, 41))
+        self.id = QLabel(AddWindow)
+        self.id.setObjectName(u"id")
+        self.id.setGeometry(QRect(10, 30, 49, 16))
+        self.id.setTextFormat(Qt.AutoText)
+        self.name_2 = QLabel(AddWindow)
+        self.name_2.setObjectName(u"name_2")
+        self.name_2.setGeometry(QRect(10, 80, 49, 16))
+        self.name_2.setTextFormat(Qt.AutoText)
+        self.lineEdit_2 = QLineEdit(AddWindow)
+        self.lineEdit_2.setObjectName(u"lineEdit_2")
+        self.lineEdit_2.setGeometry(QRect(60, 70, 211, 41))
+        self.name_3 = QLabel(AddWindow)
+        self.name_3.setObjectName(u"name_3")
+        self.name_3.setGeometry(QRect(10, 130, 49, 16))
+        self.name_3.setTextFormat(Qt.AutoText)
+        self.lineEdit_3 = QLineEdit(AddWindow)
+        self.lineEdit_3.setObjectName(u"lineEdit_3")
+        self.lineEdit_3.setGeometry(QRect(60, 120, 211, 41))
+        self.pushButton = QPushButton(AddWindow)
+        self.pushButton.setObjectName(u"pushButton")
+        self.pushButton.setGeometry(QRect(130, 170, 75, 24))
+
+        self.retranslateUi(AddWindow)
+
+        QMetaObject.connectSlotsByName(AddWindow)
+    # setupUi
+
+    def retranslateUi(self, AddWindow):
+        AddWindow.setWindowTitle(QCoreApplication.translate("AddWindow", u"AddWindow", None))
+        self.id.setText(QCoreApplication.translate("AddWindow", u"ID", None))
+        self.name_2.setText(QCoreApplication.translate("AddWindow", u"NAME", None))
+        self.name_3.setText(QCoreApplication.translate("AddWindow", u"NAME", None))
+        self.pushButton.setText(QCoreApplication.translate("AddWindow", u"PushButton", None))
+    # retranslateUi
+
+
+class Ui_RemoveWindow(object):
+    def setupUi(self, RemoveWindow):
+        if not RemoveWindow.objectName():
+            RemoveWindow.setObjectName(u"RemoveWindow")
+        RemoveWindow.resize(300, 100)
+        self.lineEdit = QLineEdit(RemoveWindow)
+        self.lineEdit.setObjectName(u"lineEdit")
+        self.lineEdit.setGeometry(QRect(60, 20, 211, 41))
+        self.id = QLabel(RemoveWindow)
+        self.id.setObjectName(u"id")
+        self.id.setGeometry(QRect(10, 30, 49, 16))
+        self.id.setTextFormat(Qt.AutoText)
+        self.pushButton = QPushButton(RemoveWindow)
+        self.pushButton.setObjectName(u"pushButton")
+        self.pushButton.setGeometry(QRect(120, 70, 75, 24))
+
+        self.retranslateUi(RemoveWindow)
+
+        QMetaObject.connectSlotsByName(RemoveWindow)
+    # setupUi
+
+    def retranslateUi(self, RemoveWindow):
+        RemoveWindow.setWindowTitle(QCoreApplication.translate("RemoveWindow", u"RemoveWindow", None))
+        self.id.setText(QCoreApplication.translate("RemoveWindow", u"ID", None))
+        self.pushButton.setText(QCoreApplication.translate("RemoveWindow", u"PushButton", None))
     # retranslateUi
 
